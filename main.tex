@@ -1,0 +1,129 @@
+\documentclass[10pt,a4paper,ragged2e]{altacv}
+
+\usepackage{polyglossia}
+\usepackage{csquotes}
+\usepackage{CJKutf8}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\setmainfont[
+    Path           = fonts/,
+    Extension      = .ttf,
+    Ligatures      = TeX,
+    BoldFont       = Lato-Bold,
+    ItalicFont     = Lato-Italic,
+    BoldItalicFont = Lato-BoldItalic
+]{Lato-Regular}
+
+%%FiraSans-Bold.otf
+\setdefaultlanguage{english}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=gray,
+}
+ 
+\urlstyle{same}
+
+
+% Change the page layout if you need to
+\geometry{left=1cm,right=9cm,marginparwidth=6.8cm,marginparsep=1.2cm,top=1cm,bottom=1cm}
+
+
+% If using xelatex or lualatex:
+% \setmainfont{Lato}
+
+% Change the colours if you want to
+\definecolor{VividPurple}{HTML}{002478}
+\definecolor{SlateGrey}{HTML}{9b111e}
+\definecolor{LightGrey}{HTML}{666666}
+\colorlet{heading}{VividPurple}
+\colorlet{accent}{VividPurple}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+\newcommand{\Chi}[2]{%
+  \csname CJK*\endcsname{UTF8}{zhsong}%
+    \CJKchar{#1}{#2}%
+  \csname endCJK*\endcsname
+}
+\ifdefined\DeclareUnicodeCharacter
+  \DeclareUnicodeCharacter{4E2D}{\Chi{"4E}{"2D}}
+  \DeclareUnicodeCharacter{6587}{\Chi{"65}{"87}}
+\fi
+
+\AtBeginDvi{\input{zhwinfonts}} 
+
+\begin{document}
+\name{Ilya Rusin}
+\tagline{Senior Go Software Engineer}
+\photo{2.5cm}{IlyaRusin_183}
+\personalinfo{
+  \email{ilya.rusin@protonmail.com}
+   \phone{+7 (999) 808-86-06}
+  \location{Moscow, Russia}
+  \github{github.com/franchb}
+}
+
+
+\begin{fullwidth}
+\makecvheader
+\end{fullwidth}
+
+\cvsection[page1sidebar]{Experience}
+
+
+\cvevent{Lead developer}{Echelon Technology}{June 2020 -- Ongoing}{Moscow}
+
+\begin{itemize}
+\item
+Worked as a team lead building a security information and event management (SIEM) software product. We used Go, eventually-consistent distributed NoSQL DB, message bus.
+\item Separated CRUD for Web and CQRS for event-driven BoundedContexts messaging.
+\item I proposed and implemented design change for reaching SLA objectives such as events per second (EPS), data compaction, security compliance.
+\item Written a lot of declarative Jenkins pipelines for DevSecOps tasks.
+\item Detailed technology specification is under NDA.
+\end{itemize}
+
+
+\divider
+
+\cvevent{Data Engineer}{Scorista --- M2M Credit Scoring API}{Jan 2018 -- June 2019}{Moscow, Russia}
+\begin{itemize}
+\item Moved legacy ETL streams from IBM Modeler/SPSS to dockerized app (Python, Dask, Pandas, Parquet, PySpark).
+\item Implemented API for extracting 27K variables in real time from user data for ML models (Python, Flask, Docker, Gitlab CI).
+\item Gave an pitch at IIDF's Russian Startups Go Global 2018 event \url{iidf.vc/goglobal/2018/en/}
+\end{itemize}
+
+\divider
+
+\cvevent{Data Journalist}{Life4me+}{Feb 2017 -- Oct 2018}{Moscow, Russia}
+\begin{itemize}
+\item Written 500+ news, scientific reviews \& interviews for LIFE4ME+ mobile app, translated Coursera MOOC into Russian.
+\end{itemize}
+
+\divider
+
+\cvevent{Lab scientist}{Institute of Geoscience RAS}{2016}{Puschino, Russia}
+\begin{itemize}
+\item Automated processing of electronic microscope and FTIR raw data using Python \& R scripts.
+\end{itemize}
+
+\divider
+
+\cvevent{Product owner \& balloon designer}{ASHAR.RU \& VIVAT Saint-Petersburg Balloons}{Aug 2004 -- July 2016}{Moscow \& Saint-Petersburg, Russia}
+
+\begin{itemize}
+\item Small site in HTML \& PHP had grown to a stable and fun business.
+\item Made 100.000K balloons drop for AlfaShow 4D on 2011 Moscow City Birthday.
+\item Established first Russian balloon bouquet delivery e-shop in 2004, joined BalloonPlanet.com as the Moscow Exclusive Partner.
+\end{itemize}
+
+\clearpage
+
+\end{document}
